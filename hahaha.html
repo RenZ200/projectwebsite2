@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Website</title>
+    <style>
+        body {
+            background-color: #f8f8f8;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .info-box {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 80%;
+            color: #333;
+        }
+
+        .info-box img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .info-box h1 {
+            font-size: 2em;
+            color: #555;
+            margin-bottom: 10px;
+            animation: moveText 2s infinite alternate;
+        }
+
+        .info-box h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .info-box p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        .info-box a.explore-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-right: 10px;
+        }
+
+        .info-box a.explore-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .project button {
+            padding: 10px 20px;
+            border: none;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .project button.play-btn {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .project button.pause-btn {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .project button:hover {
+            background-color: #6c757d;
+        }
+
+        .project-container {
+            display: none;
+            transition: transform 0.5s;
+            margin-top: 20px;
+        }
+
+        .project-container.active {
+            display: flex;
+            flex-wrap: wrap;
+            transform: scale(1);
+        }
+
+        .project {
+            flex: 0 0 calc(33.33% - 10px);
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .project img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+        iframe {
+            max-width: 100%;
+        }
+        
+        @keyframes moveText {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(10px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="info-box">
+        <img src="images/images2.jpg" alt="Your Photo">
+        <h1>Welcome to My Website</h1>
+        <h2>Hello, I'm Muhamad Moreno Nasution</h2>
+        <p>I am currently studying data analytics and software development. sesuatu hal yang saya senang adalah interaksi dengan teman dan keluarga.</p>
+        <a href="#" class="explore-btn" onclick="showProjects()">KLIK BUTTON</a>
+    </div>
+
+    <div class="project-container">
+        <div class="project">
+            <h3>My Favorite Song</h3>
+            <audio id="celineAudio" src="audio/celine.mp3"></audio>
+            <button class="play-btn" onclick="playCelineAudio()">Play Audio</button>
+            <button class="pause-btn" onclick="pauseCelineAudio()">Pause Audio</button>
+        </div>
+
+        <div class="project">
+            <h3>My Favorite Movie</h3>
+            <img src="images/Weathering.jpg" alt="Weathering with You">
+        </div>
+    </div>
+
+    <script>
+        var celineAudio = document.getElementById('celineAudio');
+
+        function showProjects() {
+            var projectContainer = document.querySelector('.project-container');
+            projectContainer.classList.toggle('active');
+        }
+
+        function playCelineAudio() {
+            celineAudio.play();
+            var playBtn = document.querySelector('.play-btn');
+            var pauseBtn = document.querySelector('.pause-btn');
+            playBtn.style.display = 'none';
+            pauseBtn.style.display = 'inline-block';
+        }
+
+        function pauseCelineAudio() {
+            celineAudio.pause();
+            var playBtn = document.querySelector('.play-btn');
+            var pauseBtn = document.querySelector('.pause-btn');
+            pauseBtn.style.display = 'none';
+            playBtn.style.display = 'inline-block';
+        }
+    </script>
+</body>
+</html>
